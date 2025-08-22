@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de cadastro de produtos</title>
+</head>
+<body>
+   <!-- Título principal da página -->
+    <h1>Cadastro de Produtos</h1>
+    <form action="/cadastrar" method="post">
+      <label>Codigo:</label><br> <!-- Campo de entrada para o código do produto -->
+      <input type="number" id="Codigo" name="codigo" tabindex="1"  step="1"  placeholder="Código do Produto" required><br>
+      <label>Nome:</label><br> <!-- Campo de entrada para o nome do produto -->
+      <input type="text" id="Nome" name="nome" tabindex="2"  placeholder="Nome do Produto" required><br>
+      <label>Preço:</label><br> <!-- Campo de entrada para o preço do produto -->
+      <input type="number" id="Preco" name="preco"  step="0.01"  tabindex="3" placeholder="Preço do Produto" required><br>
+      <label>Quantidade:</label><br> <!-- Campo de entrada para a quantidade do produto -->
+      <input type="number" id="quantidade" name="quantidade" tabindex="4" placeholder="Quantidade em Estoque" required><br> 
+      <button type="submit">Cadastrar Produto</button> <!-- Botão para enviar o formulário -->
+    </form>   
+    <br>
+    <a href="/produtos">Ver Produtos</a> <!-- Link para a página de listagem de produtos -->
+</body>
+</html>
