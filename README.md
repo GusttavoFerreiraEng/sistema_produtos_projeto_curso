@@ -7,7 +7,7 @@ Ideal para aprendizado, apresentações de curso ou demonstrações de desenvolv
 
 O sistema permite cadastrar, listar, editar e remover produtos, além de controlar o estoque e garantir **validações essenciais** para cada operação.
 
-## FALTA O CSS |DEIXAR bonitin  ne kkkkkkkkkkkkkkkkkkkkkkkkkk
+## FALTA O CSS
 
 ## 2. Funcionalidades Detalhadas
 
