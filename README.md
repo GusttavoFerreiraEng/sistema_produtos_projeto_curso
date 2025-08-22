@@ -102,7 +102,7 @@ Produtos com quantidade < 5 aparecem como "Produto em falta".
 
 ## 5.3 Editar Produto
 
-Clique em "✏ Editar" ao lado do produto desejado.
+Clique em "Editar" ao lado do produto desejado.
 
 Altere os campos nome, quantidade ou preço.
 
