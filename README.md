@@ -75,11 +75,11 @@ models.py
 
 **ANTES INSTALAR AS BIBLIOTECAS**
 
-pip install flask
+1.1 pip install flask
 
 **Depois disso para rodar e:**
 
-python app.py
+1.2 python app.py
 
 
 **5. Como Usar**
