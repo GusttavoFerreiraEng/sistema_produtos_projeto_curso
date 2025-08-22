@@ -60,16 +60,17 @@ O sistema permite cadastrar, listar, editar e remover produtos, além de control
 ---
 
 ## 3. Estrutura do Projeto
-sistema_produtos/
+1. sistema_produtos/
 app.py
 models.py
-assest/style.css
-templates/index.html = editar_produtos.html = lista_produtos.html
+2. assest/style.css
+3. templates/index.html = editar_produtos.html = lista_produtos.html
 
 ## 4. Instalação e Execução
 
 1. Clone ou baixe o projeto:
-   **nao subi ainda kkkkkkkkkkkkk**
+2. bash
+   https://github.com/gusttavo00/sistema_produtos_projeto_curso.git
    cd sistema_produtos
 
 **ANTES INSTALAR AS BIBLIOTECAS**
