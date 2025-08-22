@@ -71,7 +71,7 @@ models.py
 1. Clone ou baixe o projeto:
 2. bash
    https://github.com/gusttavo00/sistema_produtos_projeto_curso.git
-   cd sistema_produtos
+3. cd sistema_produtos
 
 **ANTES INSTALAR AS BIBLIOTECAS**
 
