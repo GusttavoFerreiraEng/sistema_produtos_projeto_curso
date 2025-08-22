@@ -61,11 +61,17 @@ O sistema permite cadastrar, listar, editar e remover produtos, além de control
 
 ## 3. Estrutura do Projeto
 sistema_produtos/
+
 │── app.py **Aplicação Flask, controla rotas e formulários**
+|
 │── models.py **Classes Produto e SistemaProdutos**
+|
 │── templates/ **HTMLs para interface web**
+|
 │ ├── index.html **Formulário para cadastrar produtos**
+| 
 │ ├── lista_produtos.html **Página de listagem de produtos**
+|
 │ ├── editar_produtos.html **Formulário para editar produtos**
 
 
