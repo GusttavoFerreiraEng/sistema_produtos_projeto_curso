@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produtos</title>
+</head>
+
+<body>
+    <h1>Editar Produto</h1>
+    <form action="/atualizar/{{ produto.codigo }}" method="post"> <!-- Formulário para editar o produto -->
+        <label>Código:</label><br> <!-- Campo de entrada para o código do produto (somente leitura) -->
+        <input type="number" name="codigo" value="{{ produto.codigo }}"  step="1" readonly title="Código do produto" placeholder="Código do produto"><br><br>
+
+        <label>Nome:</label><br> <!-- Campo de entrada para o nome do produto -->
+        <input type="text" name="nome" value="{{ produto.nome }}" required title="Nome do produto" placeholder="Nome do produto"><br><br> 
+
+        <label>Preço:</label><br>
+        <input type="number" name="preco" value="{{ produto.preco }}" step="0.01" required title="Preço do produto" placeholder="Preço do produto"><br><br>
+
+        <label>Quantidade:</label><br>
+        <input type="number" name="quantidade" value="{{ produto.quantidade }}" required title="Quantidade do produto" placeholder="Quantidade do produto"><br><br>
+
+        <button type="submit">Salvar Alterações</button> <!-- Botão para enviar o formulário -->
+    </form>
+    <br>
+    <a href="/produtos">Voltar</a> <!-- Link para voltar à lista de produtos -->
+</body>
+
+</html>

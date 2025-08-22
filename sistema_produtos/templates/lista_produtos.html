@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos cadastrados</title>
+</head>
+
+<body>
+    <h1> Produtos Cadastrados</h1> 
+    <table border="1" cellpadding="10"> <!-- Tabela para exibir os produtos -->
+        <tr>
+            <th>Código</th> <!-- Cabeçalhos da tabela -->
+            <th>Nome</th>  
+            <th>Quantidade</th> 
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %} <!-- Loop para iterar sobre os produtos -->
+        <tr>
+            <td>{{  produto.codigo }}</td> <!-- Exibição dos detalhes do produto -->
+            <td>{{ produto.nome }}</td> <!-- Exibição dos detalhes do produto -->
+            <td>{{ produto.quantidade }}</td> <!-- Exibição dos detalhes do produto -->
+            <td>R$ {{ "%.2f"|format(produto.preco) }}</td> <!-- Formatação do preço para duas casas decimais -->
+            <td>{{ produto.verificar_estoque() }}</td> <!-- Chamada do método para verificar o estoque -->
+            <td>
+                <a href="/editar/{{ produto.codigo }}">Editar</a> <!-- Link para editar o produto -->
+                <a href="/remover/{{ produto.codigo }}">Remover</a> <!-- Link para remover o produto -->
+            </td>
+        </tr>
+        {% endfor %} <!-- Fim do loop -->
+    </table>
+    <br>
+    <a href="/">Voltar</a>
+</body>
+
+</html>
+
+<!-- essas chaves e o modo que o flask entende para chamar o metodo da lista e do editar_produtos -->
