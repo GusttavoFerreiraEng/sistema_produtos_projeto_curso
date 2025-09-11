@@ -1,0 +1,38 @@
+[
+    {
+        "nome": "biscoito",
+        "codigo": 665,
+        "quantidade": 56,
+        "preco": 3.99
+    },
+    {
+        "nome": "hh",
+        "codigo": 444444444,
+        "quantidade": 1,
+        "preco": 23.0
+    },
+    {
+        "nome": "1",
+        "codigo": 1,
+        "quantidade": 1,
+        "preco": 1.0
+    },
+    {
+        "nome": "111",
+        "codigo": 111111,
+        "quantidade": 111,
+        "preco": 111.0
+    },
+    {
+        "nome": "343",
+        "codigo": 434,
+        "quantidade": 3443,
+        "preco": 3443.0
+    },
+    {
+        "nome": "dsa",
+        "codigo": 32,
+        "quantidade": 34,
+        "preco": 3.0
+    }
+]
