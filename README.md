@@ -35,7 +35,7 @@ O sistema permite registar, listar, editar e remover produtos com validações r
 O projeto adota uma estrutura modular baseada em Blueprints para separar as preocupações da aplicação:
 
 sistema_produtos_projeto_curso/
-├── migrations/             # Estrutura do Flask-Migrate/Alembic
+``├── migrations/             # Estrutura do Flask-Migrate/Alembic
 ├── sistema_produtos/
 │   ├── auth/
 │   │   └── routes.py      # Rotas de Autenticação (login, logout)
@@ -49,7 +49,7 @@ sistema_produtos_projeto_curso/
 │   └── models.py          # Modelos ORM (Produto, Usuario)
 ├── config.py              # Configurações de base da aplicação
 ├── requirements.txt       # Dependências
-└── wsgi.py                # Ponto de entrada para servidores web (Gunicorn)
+└── wsgi.py                # Ponto de entrada para servidores web (Gunicorn)``
 
 
 ## 5. Instalação e Execução
