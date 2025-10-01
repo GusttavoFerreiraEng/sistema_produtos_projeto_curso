@@ -34,23 +34,18 @@ O sistema permite registar, listar, editar e remover produtos com validações r
 
 O projeto adota uma estrutura modular baseada em Blueprints para separar as preocupações da aplicação:
 
-sistema_produtos_projeto_curso/
-``├── migrations/             # Estrutura do Flask-Migrate/Alembic
-#########
-├── sistema_produtos/
-│   ├── auth/
-│   │   └── routes.py      # Rotas de Autenticação (login, logout)
-│   ├── produtos/
-│   │   └── routes.py      # Rotas de CRUD de Produtos e API
-│   ├── static/
-│   │   └── ...            # Arquivos CSS e JavaScript
-│   ├── templates/         # Templates Jinja2 (base.html, login.html, etc.)
-│   ├── init.py        # Factory da Aplicação (create_app, inicialização)
-│   ├── extensions.py      # Instâncias de SQLAlchemy e Migrate
-│   └── models.py          # Modelos ORM (Produto, Usuario)
-├── config.py              # Configurações de base da aplicação
-├── requirements.txt       # Dependências
-└── wsgi.py                # Ponto de entrada para servidores web (Gunicorn)``
+Módulo	Caminho	Descrição
+Núcleo da Aplicação	sistema_produtos/__init__.py	App Factory (create_app): Cria, configura e registra os Blueprints.
+sistema_produtos/extensions.py	Inicializa as instâncias das extensões (db - SQLAlchemy, migrate).
+sistema_produtos/models.py	Define os modelos de dados ORM: Produto e Usuario.
+Configuração	config.py	Configurações base (Chave Secreta e URL da Base de Dados).
+requirements.txt	Lista todas as dependências do Python.
+Blueprint: Autenticação	sistema_produtos/auth/routes.py	Lógica das rotas de Login (/login) e Logout (/logout).
+Blueprint: Produtos	sistema_produtos/produtos/routes.py	Rotas de CRUD para produtos e o endpoint de API (AJAX).
+Frontend/Estáticos	sistema_produtos/templates/	Contém todos os arquivos HTML (Jinja2).
+sistema_produtos/static/js/app.js	Lógica JavaScript para interações, como a chamada AJAX para remover produtos.
+Base de Dados	migrations/	Scripts de migração (Flask-Migrate/Alembic).
+instance/	Pasta que armazena o arquivo da base de dados local (produtos.db).
 
 
 ## 5. Instalação e Execução
