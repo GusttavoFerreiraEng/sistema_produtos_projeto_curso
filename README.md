@@ -36,6 +36,7 @@ O projeto adota uma estrutura modular baseada em Blueprints para separar as preo
 
 sistema_produtos_projeto_curso/
 ``├── migrations/             # Estrutura do Flask-Migrate/Alembic
+#########
 ├── sistema_produtos/
 │   ├── auth/
 │   │   └── routes.py      # Rotas de Autenticação (login, logout)
