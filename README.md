@@ -32,20 +32,20 @@ O sistema permite registar, listar, editar e remover produtos com validações r
 
 ## 4. Estrutura do Projeto
 
-O projeto adota uma estrutura modular baseada em Blueprints para separar as preocupações da aplicação:
-
-Módulo	Caminho	Descrição
-Núcleo da Aplicação	sistema_produtos/__init__.py	App Factory (create_app): Cria, configura e registra os Blueprints.
-sistema_produtos/extensions.py	Inicializa as instâncias das extensões (db - SQLAlchemy, migrate).
-sistema_produtos/models.py	Define os modelos de dados ORM: Produto e Usuario.
-Configuração	config.py	Configurações base (Chave Secreta e URL da Base de Dados).
-requirements.txt	Lista todas as dependências do Python.
-Blueprint: Autenticação	sistema_produtos/auth/routes.py	Lógica das rotas de Login (/login) e Logout (/logout).
-Blueprint: Produtos	sistema_produtos/produtos/routes.py	Rotas de CRUD para produtos e o endpoint de API (AJAX).
-Frontend/Estáticos	sistema_produtos/templates/	Contém todos os arquivos HTML (Jinja2).
-sistema_produtos/static/js/app.js	Lógica JavaScript para interações, como a chamada AJAX para remover produtos.
-Base de Dados	migrations/	Scripts de migração (Flask-Migrate/Alembic).
-instance/	Pasta que armazena o arquivo da base de dados local (produtos.db).
+Módulo / Componente	Caminho do Arquivo	Função Principal (O que faz)
+PACOTE PRINCIPAL	sistema_produtos/	O contêiner de toda a lógica da aplicação Flask.
+App Factory	__init__.py	Cria a instância do Flask (create_app), configura e registra os Blueprints.
+Extensões	extensions.py	Inicializa as instâncias de SQLAlchemy e Migrate.
+Modelos (ORM)	models.py	Define a estrutura da Base de Dados (Classes Produto e Usuario).
+BLUEPRINT: AUTENTICAÇÃO	auth/	Gerencia o acesso ao sistema.
+Rotas de Acesso	auth/routes.py	Lógica para login e logout.
+BLUEPRINT: PRODUTOS	produtos/	Gerencia as funcionalidades de CRUD.
+Rotas CRUD	produtos/routes.py	Rotas para cadastrar, listar, editar e o endpoint API de remoção.
+FRONTEND / RECURSOS	templates/	Arquivos HTML (Jinja2) das páginas e o layout base.
+static/js/app.js	Contém a lógica JavaScript da aplicação, incluindo a função AJAX para remoção de produtos.
+CONFIG. E SETUP	config.py	Configurações de ambiente para desenvolvimento e produção.
+requirements.txt	Lista de todas as bibliotecas Python necessárias.
+migrations/	Pasta com os scripts de migração de BD (Flask-Migrate/Alembic).
 
 
 ## 5. Instalação e Execução
