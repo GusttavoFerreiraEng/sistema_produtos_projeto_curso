@@ -31,22 +31,32 @@ O sistema permite registar, listar, editar e remover produtos com validações r
 * **Remoção com AJAX:** A remoção do produto é feita com uma requisição `DELETE` para o endpoint `/api/remover/<codigo>`, garantindo uma experiência de utilizador fluida sem recarregar a página.
 
 ## 4. Estrutura do Projeto
-
-Módulo / Componente	Caminho do Arquivo	Função Principal (O que faz)
-PACOTE PRINCIPAL	sistema_produtos/	O contêiner de toda a lógica da aplicação Flask.
-App Factory	__init__.py	Cria a instância do Flask (create_app), configura e registra os Blueprints.
-Extensões	extensions.py	Inicializa as instâncias de SQLAlchemy e Migrate.
-Modelos (ORM)	models.py	Define a estrutura da Base de Dados (Classes Produto e Usuario).
-BLUEPRINT: AUTENTICAÇÃO	auth/	Gerencia o acesso ao sistema.
-Rotas de Acesso	auth/routes.py	Lógica para login e logout.
-BLUEPRINT: PRODUTOS	produtos/	Gerencia as funcionalidades de CRUD.
-Rotas CRUD	produtos/routes.py	Rotas para cadastrar, listar, editar e o endpoint API de remoção.
-FRONTEND / RECURSOS	templates/	Arquivos HTML (Jinja2) das páginas e o layout base.
-static/js/app.js	Contém a lógica JavaScript da aplicação, incluindo a função AJAX para remoção de produtos.
-CONFIG. E SETUP	config.py	Configurações de ambiente para desenvolvimento e produção.
-requirements.txt	Lista de todas as bibliotecas Python necessárias.
-migrations/	Pasta com os scripts de migração de BD (Flask-Migrate/Alembic).
-
+```bash
+sistema_produtos_projeto_curso/
+├── config.py                 # Configurações globais: Chaves, DB URI.
+├── requirements.txt          # Dependências do Python.
+├── wsgi.py                   # Ponto de entrada para servidores de produção (Gunicorn).
+├── instance/                 # Pasta ignorada pelo Git: Contém a Base de Dados (produtos.db).
+├── migrations/               # Arquivos de Migração da Base de Dados (Alembic/Flask-Migrate).
+├── tests/                    # Ambiente de Testes.
+│   ├── conftest.py           # Fixtures (configuração de App e Cliente para testes).
+│   └── test_auth.py          # Testes para as rotas de Login e Logout.
+│
+└── sistema_produtos/         # PACOTE PRINCIPAL DA APLICAÇÃO (sistema_produtos)
+    ├── __init__.py           # Função Factory (create_app): Monta o App e registra Blueprints.
+    ├── extensions.py         # Instâncias de Extensões (db=SQLAlchemy, migrate=Migrate).
+    ├── models.py             # Modelos de Dados ORM (Produto e Usuario).
+    ├── auth/                 # BLUEPRINT: AUTENTICAÇÃO
+    │   └── routes.py         # Lógica de rotas /login e /logout.
+    ├── produtos/             # BLUEPRINT: CRUD DE PRODUTOS
+    │   └── routes.py         # Lógica de rotas CRUD e API (cadastrar, listar, editar, remover).
+    ├── templates/            # Arquivos HTML Jinja2.
+    │   ├── base.html         # Layout base da aplicação.
+    │   └── ...               # login.html, lista_produtos.html, etc.
+    └── static/               # Arquivos Estáticos.
+        ├── css/              # Arquivos de estilo.
+        └── js/
+            └── app.js        # Lógica JavaScript (inclui remoção AJAX).```
 
 ## 5. Instalação e Execução
 
