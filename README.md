@@ -56,7 +56,8 @@ sistema_produtos_projeto_curso/
     └── static/               # Arquivos Estáticos.
         ├── css/              # Arquivos de estilo.
         └── js/
-            └── app.js        # Lógica JavaScript (inclui remoção AJAX).```
+            └── app.js        # Lógica JavaScript (inclui remoção AJAX).
+```
 
 ## 5. Instalação e Execução
 
