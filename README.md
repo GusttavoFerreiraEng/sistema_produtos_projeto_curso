@@ -1,128 +1,111 @@
-# Sistema de Cadastro de Produtos
+# Sistema de Gestão de Produtos (CRUD)
 
 ## 1. Descrição do Projeto
-Este projeto é um **CRUD (Create, Read, Update, Delete) completo de produtos**, desenvolvido em **Python com Flask**.  
-Ele utiliza **orientação a objetos (POO)** para gerenciar produtos e operações do sistema, **sem necessidade de banco de dados**.  
-Ideal para aprendizado, apresentações de curso ou demonstrações de desenvolvimento web com Flask.
 
-O sistema permite cadastrar, listar, editar e remover produtos, além de controlar o estoque e garantir **validações essenciais** para cada operação.
+Este projeto é um **Sistema Completo de Gestão de Produtos (CRUD: Create, Read, Update, Delete)** desenvolvido em **Python** com o framework **Flask**.
 
-## FALTA O CSS
+A aplicação segue uma arquitetura moderna e modular, utilizando **Blueprints** para separar as funcionalidades de autenticação e de produtos. A persistência de dados é feita através do **Flask-SQLAlchemy** e o controle da estrutura do banco de dados é gerido com **Flask-Migrate** (Alembic).
 
-## 2. Funcionalidades Detalhadas
+O sistema permite registar, listar, editar e remover produtos com validações rigorosas, além de um sistema de autenticação de utilizadores seguro (hashing de senhas com `Werkzeug`).
 
-### 2.1 Cadastrar Produtos
-- Preenche-se um formulário com:
-  - **Nome**: nome do produto.
-  - **Código**: número único do produto (não aceita letras).
-  - **Quantidade**: número de unidades disponíveis.
-  - **Preço**: valor unitário do produto.
-- Validações:
-  - Código **numérico e único**.
-  - Quantidade e preço **positivos**.
-- Resultado: Produto é adicionado à lista de produtos do sistema.
+## 2. Tecnologias Utilizadas
 
-### 2.2 Listar Produtos
-- Exibe todos os produtos cadastrados em uma **tabela organizada**.
-- Colunas exibidas:
-  - Código
-  - Nome
-  - Quantidade
-  - Preço
-  - Status do estoque (em estoque ou em falta)
-- Funcionalidades adicionais (opcionais):
-  - Ordenar por nome, preço ou quantidade.
-  - Pesquisar por nome ou código.
+* **Backend:** Python, Flask (3.1.2)
+* **Banco de Dados:** Flask-SQLAlchemy (camada ORM)
+* **Migrações:** Flask-Migrate (Alembic)
+* **Segurança:** Werkzeug (para hashing de senhas)
+* **Configuração:** `python-dotenv`
+* **Frontend:** HTML5, Jinja2, CSS3 (Estilos modernos e responsivos), JavaScript (Uso de AJAX na remoção de produtos).
 
-### 2.3 Editar Produtos
-- Permite alterar:
-  - Nome
-  - Quantidade
-  - Preço
-- O **código do produto não pode ser alterado** (garante unicidade).
-- Formulário já vem preenchido com os dados atuais do produto.
+## 3. Funcionalidades Chave
 
-### 2.4 Remover Produtos
-- Permite excluir produtos do sistema.
-- O usuário confirma a ação clicando no botão de remover.
+### 3.1 Autenticação e Segurança
+* **Login/Logout:** Acesso protegido por utilizador e senha.
+* **Controle de Acesso:** O decorador `@login_required` garante que apenas utilizadores autenticados acedam às rotas de gestão de produtos.
+* **Hashing de Senhas:** As senhas são armazenadas de forma segura (não em texto simples).
 
-### 2.5 Controle de Estoque
-- Cada produto possui uma quantidade em estoque.
-- Sistema avisa se a quantidade estiver **abaixo de 5 unidades**.
-- Possibilidade de aumentar ou diminuir estoque diretamente pelo código Python.
+### 3.2 Gestão de Produtos (CRUD)
+* **Registo de Produtos:** Campos para Código (único), Nome, Quantidade e Preço.
+* **Listagem de Produtos:** Tabela responsiva exibindo o status de estoque (`Produto em estoque` ou `Produto em falta`).
+* **Edição de Produtos:** Permite alterar Nome, Quantidade e Preço (o Código é fixo).
+* **Remoção com AJAX:** A remoção do produto é feita com uma requisição `DELETE` para o endpoint `/api/remover/<codigo>`, garantindo uma experiência de utilizador fluida sem recarregar a página.
 
-### 2.6 Validações de Dados
-- Código: apenas números inteiros, único.
-- Nome: campo obrigatório.
-- Quantidade: deve ser positiva.
-- Preço: deve ser positivo.
+## 4. Estrutura do Projeto
 
----
+O projeto adota uma estrutura modular baseada em Blueprints para separar as preocupações da aplicação:
 
-## 3. Estrutura do Projeto
-1. sistema_produtos/
-app.py
-models.py
-2. assest/style.css
-3. templates/index.html = editar_produtos.html = lista_produtos.html
-
-## 4. Instalação e Execução
-
-1. Clone ou baixe o projeto:
-2. bash
-   https://github.com/gusttavo00/sistema_produtos_projeto_curso.git
-3. cd sistema_produtos
-
-**ANTES INSTALAR AS BIBLIOTECAS**
-
-1.1 pip install flask
-
-**Depois disso para rodar e:**
-
-1.2 python app.py
+sistema_produtos_projeto_curso/
+├── migrations/             # Estrutura do Flask-Migrate/Alembic
+├── sistema_produtos/
+│   ├── auth/
+│   │   └── routes.py      # Rotas de Autenticação (login, logout)
+│   ├── produtos/
+│   │   └── routes.py      # Rotas de CRUD de Produtos e API
+│   ├── static/
+│   │   └── ...            # Arquivos CSS e JavaScript
+│   ├── templates/         # Templates Jinja2 (base.html, login.html, etc.)
+│   ├── init.py        # Factory da Aplicação (create_app, inicialização)
+│   ├── extensions.py      # Instâncias de SQLAlchemy e Migrate
+│   └── models.py          # Modelos ORM (Produto, Usuario)
+├── config.py              # Configurações de base da aplicação
+├── requirements.txt       # Dependências
+└── wsgi.py                # Ponto de entrada para servidores web (Gunicorn)
 
 
-**5. Como Usar**
+## 5. Instalação e Execução
 
-5.1 Cadastrar Produto
+### 5.1. Pré-requisitos
+* Python 3.8+
+* `pip`
 
-Preencha o formulário na página inicial (index.html).
+### 5.2. Configuração do Ambiente
 
-Clique em "Cadastrar Produto".
+1.  **Clone o repositório e crie o ambiente virtual:**
+    ```bash
+    git clone [LINK DO REPOSITÓRIO]
+    cd sistema_produtos_projeto_curso
+    python -m venv venv
+    source venv/bin/activate  # Linux/macOS
+    # ou
+    venv\Scripts\activate     # Windows
+    ```
 
-Será redirecionado para a lista de produtos.
+2.  **Instale as dependências:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## 5.2 Listar Produtos
+3.  **Configure o arquivo `.env`:**
+    Crie um arquivo chamado **`.env`** na raiz do projeto com as seguintes variáveis (altere os valores):
 
-Clique em "Ver Produtos".
+    ```ini
+    FLASK_SECRET_KEY="SUA_CHAVE_SECRETA_MUITO_FORTE_AQUI"
+    DATABASE_URL="sqlite:///instance/produtos.db"  # Use um caminho absoluto ou relativo, mas crie a pasta 'instance'.
+    ADMIN_USERNAME="admin"
+    ADMIN_PASSWORD="123"
+    ```
 
-Visualize todos os produtos cadastrados e seus detalhes.
+### 5.3. Inicialização do Banco de Dados
 
-Produtos com quantidade < 5 aparecem como "Produto em falta".
+1.  **Defina a variável `FLASK_APP`:**
+    ```bash
+    export FLASK_APP=sistema_produtos  # Necessário para os comandos Flask CLI
+    # ou no Windows: set FLASK_APP=sistema_produtos
+    ```
 
-## 5.3 Editar Produto
+2.  **Aplique as migrações (cria as tabelas):**
+    ```bash
+    flask db upgrade
+    ```
 
-Clique em "Editar" ao lado do produto desejado.
+3.  **Crie o utilizador administrador inicial:**
+    ```bash
+    flask seed-db
+    ```
+    *(Este comando cria o utilizador com as credenciais definidas em `ADMIN_USERNAME` e `ADMIN_PASSWORD` no seu `.env`)*.
 
-Altere os campos nome, quantidade ou preço.
+### 5.4. Execução da Aplicação
 
-O código permanece fixo.
-
-Clique em "Salvar Alterações".
-
-**5.4 Remover Produto**
-
-Clique em "Remover" ao lado do produto.
-
-Produto será excluído imediatamente do sistema.
-
-
-**6. Observações Importantes**
-
-## Código único e numérico: garante que cada produto seja identificado corretamente.
-
-## Sem banco de dados: os dados existem apenas enquanto a aplicação Flask estiver rodando.
-
-## Estoque mínimo recomendado: 5 unidades.
-
-## Sistema projetado com POO, separando a lógica de produto da lógica da aplicação web.
+**Modo de Desenvolvimento:**
+```bash
+flask run
