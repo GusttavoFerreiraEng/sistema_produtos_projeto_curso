@@ -1,0 +1,8 @@
+[project]
+name = "sistema_produtos"
+version = "0.1.0"
+
+[tool.setuptools]
+# Esta linha diz ao setuptools para instalar APENAS o pacote 'sistema_produtos'
+# e ignorar as pastas 'instance' e 'migrations'.
+packages = ["sistema_produtos"]

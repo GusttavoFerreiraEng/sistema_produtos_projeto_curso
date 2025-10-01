@@ -1,0 +1,11 @@
+pyproject.toml
+sistema_produtos/__init__.py
+sistema_produtos/app.py
+sistema_produtos/extensions.py
+sistema_produtos/models.py
+sistema_produtos/tempCodeRunnerFile.py
+sistema_produtos.egg-info/PKG-INFO
+sistema_produtos.egg-info/SOURCES.txt
+sistema_produtos.egg-info/dependency_links.txt
+sistema_produtos.egg-info/top_level.txt
+tests/test_auth.py
