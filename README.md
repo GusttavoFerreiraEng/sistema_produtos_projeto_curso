@@ -69,7 +69,7 @@ sistema_produtos_projeto_curso/
 
 1.  **Clone o repositório e crie o ambiente virtual:**
     ```bash
-    git clone [LINK DO REPOSITÓRIO]
+    git clone [LINK DESTE REPOSITÓRIO]
     cd sistema_produtos_projeto_curso
     python -m venv venv
     source venv/bin/activate  # Linux/macOS
@@ -86,7 +86,7 @@ sistema_produtos_projeto_curso/
     Crie um arquivo chamado **`.env`** na raiz do projeto com as seguintes variáveis (altere os valores):
 
     ```ini
-    FLASK_SECRET_KEY="SUA_CHAVE_SECRETA_MUITO_FORTE_AQUI"
+    FLASK_SECRET_KEY="chave_key"
     DATABASE_URL="sqlite:///instance/produtos.db"  # Use um caminho absoluto ou relativo, mas crie a pasta 'instance'.
     ADMIN_USERNAME="admin"
     ADMIN_PASSWORD="123"
