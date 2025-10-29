@@ -13,7 +13,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # --- CONFIGURAÇÕES DA APLICAÇÃO ---
-app.config['FLASK_SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY', 'default-secret-key')
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-secret-key')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///produtos.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -157,4 +157,5 @@ def editar(codigo):
     return render_template("editar_produtos.html", produto=produto)
 
 if __name__ == "__main__":
+
     app.run(debug=True)
