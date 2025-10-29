@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Produtos Cadastrados{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lista.css') }}">
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
+
+
+{% block navbar %}
+<div class="navbar">
+    <a href="/" class="back-btn">Voltar</a>
+    <h1>Produtos Cadastrados</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="Container-table">
+    <div class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr id="produto-{{ produto.codigo }}">
+                    <td data-label="Código">{{ produto.codigo }}</td>
+                    <td data-label="Nome">{{ produto.nome }}</td>
+                    <td data-label="Quantidade">{{ produto.quantidade }}</td>
+                    <td data-label="Preço">R$ {{ "%.2f"|format(produto.preco) }}</td>
+                    <td data-label="Estoque">{{ produto.verificar_estoque() }}</td>
+                    <td data-label="Ações" class="table-actions">
+                        <div class="action-buttons">
+                            <a class="btn-editar-tabela"
+                                href="{{ url_for('produtos.editar', codigo=produto.codigo) }}">Editar</a>
+
+                            <button type="button" class="btn-delete" onclick="removerProduto({{ produto.codigo }})">
+                                Remover
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
